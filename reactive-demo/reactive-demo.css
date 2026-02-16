@@ -1,0 +1,52 @@
+/* Center page */
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+/* Keep same width as template */
+.card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.10);
+}
+
+/* Inputs */
+input,
+select {
+  width: 100%;
+  border: 1px solid #c8c6ff;
+  border-radius: 6px;
+  padding: 9px 10px;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+  border-color: #7c78ff;
+  box-shadow: 0 0 0 3px rgba(124, 120, 255, 0.15);
+}
+
+/* Error text */
+.text-danger {
+  font-size: 12px;
+}
+
+/* Button */
+button {
+  border-radius: 6px !important;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Disabled look */
+button:disabled {
+  background: #b9bac7 !important;
+  border-color: #b9bac7 !important;
+  cursor: not-allowed;
+}

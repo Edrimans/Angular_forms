@@ -1,0 +1,111 @@
+<h2 class="page-title">Template Driven Demo</h2>
+
+<div class="page">
+  <div class="stack">
+
+    <!-- FORM CARD -->
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()" class="card">
+
+      <!-- Username -->
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        placeholder="Enter username"
+        required
+        #u="ngModel"
+      />
+      <small *ngIf="u.invalid && u.touched">Username is required.</small>
+
+      <!-- Email -->
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Enter email"
+        required
+        email
+        #e="ngModel"
+      />
+      <small *ngIf="e.invalid && e.touched">Valid email is required.</small>
+
+      <!-- Password -->
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter password"
+        required
+        minlength="6"
+        #p="ngModel"
+      />
+      <small *ngIf="p.invalid && p.touched">
+        Minimum 6 characters.
+      </small>
+
+      <!-- Role -->
+      <select name="role" [(ngModel)]="role" required #r="ngModel">
+        <option value="" disabled selected>Select role</option>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+        <option value="Guest">Guest</option>
+      </select>
+      <small *ngIf="r.invalid && r.touched">Role is required.</small>
+
+      <!-- Gender -->
+      <div class="radio-row">
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="Male"
+            [(ngModel)]="gender"
+            required
+            #g="ngModel"
+          />
+          Male
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="Female"
+            [(ngModel)]="gender"
+          />
+          Female
+        </label>
+      </div>
+      <small *ngIf="g.invalid && g.touched">Gender is required.</small>
+
+      <!-- Status -->
+      <select name="status" [(ngModel)]="status" required #s="ngModel">
+        <option value="" disabled selected>Select status</option>
+        <option value="Permanent">Permanent</option>
+        <option value="Probationary">Probationary</option>
+      </select>
+      <small *ngIf="s.invalid && s.touched">Status is required.</small>
+
+      <!-- Submit -->
+      <button class="btn-submit" type="submit" [disabled]="myForm.invalid">
+        Submit
+      </button>
+    </form>
+
+    <!-- OUTPUT CARD -->
+    <div class="card" *ngIf="submitted">
+      <input type="text" [value]="username" disabled />
+      <input type="text" [value]="email" disabled />
+      <input type="text" [value]="password" disabled />
+      <input type="text" [value]="role" disabled />
+
+      <input type="text" [value]="gender" disabled />
+      <input type="text" [value]="status" disabled />
+
+      <button class="btn-submit active">
+        Submit
+      </button>
+    </div>
+
+  </div>
+</div>
