@@ -1,42 +1,43 @@
-<h2 class="mb-3"></h2>
+<div class="form-wrapper">
+  <h2 class="form-title">Create Account</h2>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="card shadow-sm p-4" style="max-width:520px;">
-  <!-- Username -->
-  <div class="mb-3">
-    <input class="form-control" type="text" placeholder="Enter username" formControlName="username" />
-    <div class="text-danger small mt-1" *ngIf="isInvalid('username')">
-      Username is required (4–12 letters/numbers/_).
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card shadow-sm p-4">
+    <!-- Username -->
+    <div class="mb-3">
+      <input class="form-control" type="text" placeholder="Enter username" formControlName="username" />
+      <div class="text-danger small mt-1" *ngIf="isInvalid('username')">
+        Username is required (4–12 letters/numbers/_).
+      </div>
     </div>
-  </div>
 
-  <!-- Email -->
-  <div class="mb-3">
-    <input class="form-control" type="email" placeholder="Enter email" formControlName="email" />
-    <div class="text-danger small mt-1" *ngIf="isInvalid('email')">
-      Enter a valid email.
+    <!-- Email -->
+    <div class="mb-3">
+      <input class="form-control" type="email" placeholder="Enter email" formControlName="email" />
+      <div class="text-danger small mt-1" *ngIf="isInvalid('email')">
+        Enter a valid email.
+      </div>
     </div>
-  </div>
 
-  <!-- Password -->
-  <div class="mb-3">
-    <input class="form-control" type="password" placeholder="Enter password" formControlName="password" />
-    <div class="text-danger small mt-1" *ngIf="isInvalid('password')">
-      Password must be 8+ chars with upper, lower, and number.
+    <!-- Password -->
+    <div class="mb-3">
+      <input class="form-control" type="password" placeholder="Enter password" formControlName="password" />
+      <div class="text-danger small mt-1" *ngIf="isInvalid('password')">
+        Password must be 8+ chars with upper, lower, and number.
+      </div>
     </div>
-  </div>
 
-  <!-- Role -->
-  <div class="mb-3">
-    <select class="form-select" formControlName="role">
-      <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
-    </select>
-    <div class="text-danger small mt-1" *ngIf="isInvalid('role')">
-      Role is required.
+    <!-- Role -->
+    <div class="mb-3">
+      <select class="form-select" formControlName="role">
+        <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+      </select>
+      <div class="text-danger small mt-1" *ngIf="isInvalid('role')">
+        Role is required.
+      </div>
     </div>
-  </div>
 
-  <button class="btn btn-primary w-100" type="submit" [disabled]="form.invalid">
-    Submit
-  </button>
-</form>
-
+    <button class="btn btn-primary w-100" type="submit" [disabled]="form.invalid">
+      Submit
+    </button>
+  </form>
+</div>
